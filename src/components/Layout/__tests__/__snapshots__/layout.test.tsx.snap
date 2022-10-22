@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout should render correct layout 1`] = `
+<Layout>
+  <PageHeader
+    className="layout bg-orange"
+    title="HACKER NEWS"
+  >
+    <ResizeObserver
+      onResize={[Function]}
+    >
+      <SingleObserver
+        key="rc-observer-key-0"
+        onResize={[Function]}
+      >
+        <DomWrapper>
+          <div
+            className="ant-page-header layout bg-orange ant-page-header-ghost"
+          >
+            <div
+              className="ant-page-header-heading"
+            >
+              <div
+                className="ant-page-header-heading-left"
+              >
+                <span
+                  className="ant-page-header-heading-title"
+                  title="HACKER NEWS"
+                >
+                  HACKER NEWS
+                </span>
+              </div>
+            </div>
+          </div>
+        </DomWrapper>
+      </SingleObserver>
+    </ResizeObserver>
+  </PageHeader>
+  <Outlet />
+</Layout>
+`;
