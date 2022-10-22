@@ -1,12 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {Story} from '../types';
+
+interface StoriesState {
+	value: Story[]
+}
+
+const initialState: StoriesState = {
+	value: []
+};
 
 export const storiesSlice = createSlice({
 	name: 'stories',
-	initialState: {
-		value: []
-	},
+	initialState,
 	reducers: {
-		setStories: (state, action) => {
+		setStories: (state, action: PayloadAction<Story[]>) => {
 			state.value = action.payload;
 		}
 	}
