@@ -2,13 +2,16 @@
 
 import React, {FC} from 'react';
 import {Outlet} from 'react-router-dom';
+import {PageHeader} from 'antd';
+import './styles.scss';
 
 export const Layout: FC = () => {
 	return (
 		<>
-			<div className='layout'>
-				<h2>HACKER NEWS</h2>
-			</div>
+			<PageHeader
+				className='layout bg-orange'
+				title='HACKER NEWS'
+			/>
 			<Outlet/>
 		</>
 	);
