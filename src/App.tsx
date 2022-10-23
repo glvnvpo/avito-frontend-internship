@@ -1,6 +1,6 @@
 // @flow
 
-import React, { FC } from 'react';
+import React, {FC} from 'react';
 import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
 import './App.scss';
 import {Layout} from './components/Layout';
