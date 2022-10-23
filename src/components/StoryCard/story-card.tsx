@@ -15,7 +15,7 @@ enum Fields {
 }
 
 type Props = {
-    story: Story;
+    story: Story | undefined;
     isLoading?: boolean;
     asLink?: boolean;
     to?: string;
@@ -25,7 +25,7 @@ type Props = {
 export const StoryCard: FC<Props & HTMLAttributes<any>> = ({story, isLoading=false, asLink=false,
 	to, fieldsToShow=[Fields.ALL], ...rest}) => {
     
-	let {title, score, by, time, url, text, descendants} = story;
+	let {title, score, by, time, url, text, descendants} = story || {};
 
 	const navigate = useNavigate();
 
