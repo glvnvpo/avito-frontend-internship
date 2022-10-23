@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner should render default Spinner 1`] = `
+<Spinner>
+  <div
+    className="spinner orange"
+  >
+    <Spin
+      size="large"
+    >
+      <Spin
+        size="large"
+        spinPrefixCls="ant-spin"
+      >
+        <div
+          aria-busy={true}
+          aria-live="polite"
+          className="ant-spin ant-spin-lg ant-spin-spinning"
+        >
+          <span
+            className="ant-spin-dot ant-spin-dot-spin"
+          >
+            <i
+              className="ant-spin-dot-item"
+            />
+            <i
+              className="ant-spin-dot-item"
+            />
+            <i
+              className="ant-spin-dot-item"
+            />
+            <i
+              className="ant-spin-dot-item"
+            />
+          </span>
+        </div>
+      </Spin>
+    </Spin>
+  </div>
+</Spinner>
+`;
