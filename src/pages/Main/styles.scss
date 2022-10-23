@@ -6,7 +6,7 @@
   justify-content: center;
 
   .content {
-    width: 50rem;
+    width: 50em;
     padding-right: 10px;
     padding-left: 10px;
 
@@ -24,15 +24,6 @@
       .title {
         font-size: 1.5rem;
       }
-
-      @media screen and (max-width: $medium) {
-        padding-top: 10px;
-        padding-bottom: 10px;
-
-        .title {
-          font-size: 1.25rem;
-        }
-      }
     }
 
     .cards {
@@ -47,6 +38,19 @@
 
       .empty {
         font-size: 1rem;
+      }
+    }
+
+    @media screen and (max-width: $medium) {
+      width: 100%;
+
+      .header {
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        .title {
+          font-size: 1.25rem;
+        }
       }
     }
   }

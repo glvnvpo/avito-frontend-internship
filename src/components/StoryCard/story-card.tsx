@@ -46,7 +46,7 @@ export const StoryCard: FC<Props & HTMLAttributes<any>> = ({story, isLoading=fal
 	return (
 		<Card title={title} className={`story color-grey3 ${asLink && 'link'}`}
 			  onClick={() => navigateTo(to)} {...rest}>
-			{score} points | <span className='user'>{by}</span> | {getDateFromTimestamp(time)}
+			{score}&nbsp;points&nbsp;| <span className='user'>{by}</span>&nbsp;| {getDateFromTimestamp(time)}
 		</Card>
 
 	);

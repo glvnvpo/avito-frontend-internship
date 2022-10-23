@@ -23,4 +23,22 @@
   &.link {
     cursor: pointer;
   }
+
+  @media screen and (max-width: $medium) {
+
+    .ant-card-head {
+      padding: 0 15px;
+
+      .ant-card-head-title {
+        font-size: 1.15rem;
+        padding: 15px 0;
+        white-space: normal;
+        overflow: visible;
+      }
+    }
+
+    .ant-card-body {
+      padding: 15px;
+    }
+  }
 }
