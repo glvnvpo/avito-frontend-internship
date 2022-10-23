@@ -1,0 +1,26 @@
+@import '~antd/dist/antd.css';
+@import "../../style/variables.scss";
+
+.story {
+  width: 100%;
+  border: 1px solid $orange;
+
+  .ant-card-head-title {
+    color: $orange;
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+
+  .ant-card-body {
+    font-size: 1rem;
+    font-weight: 500;
+
+    .user {
+      font-weight: 600;
+    }
+  }
+
+  &.link {
+    cursor: pointer;
+  }
+}
