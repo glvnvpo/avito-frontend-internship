@@ -1,0 +1,19 @@
+@import '~antd/dist/antd.css';
+@import "../../style/variables.scss";
+
+.spinner {
+
+  &.orange {
+
+    .ant-spin-dot-item {
+      background-color: $orange;
+    }
+  }
+
+  &.grey {
+
+    .ant-spin-dot-item {
+      background-color: $grey;
+    }
+  }
+}
