@@ -9,6 +9,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
+
+  .ant-btn {
+    font-size: 1rem;
+    box-sizing: border-box;
+    height: 35px;
+  }
 }
 
 .bold {

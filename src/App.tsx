@@ -2,7 +2,6 @@
 
 import React, {FC} from 'react';
 import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
-import './App.scss';
 import {Layout} from './components/Layout';
 import {Main} from './pages/Main';
 import {SingleStory} from './pages/SingleStory';
