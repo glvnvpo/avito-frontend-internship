@@ -7,7 +7,7 @@ import axios from 'axios';
 import {isEmpty, isNull} from 'lodash';
 import './styles.scss';
 import {ID, Story} from '../../types';
-import {StoryCard} from '../../components/StoryCard';
+import {Fields, StoryCard} from '../../components/StoryCard';
 import {Spinner} from '../../components/Spinner';
 import {setStories} from '../../store/stories';
 import {MINUTE} from '../../constants/time';
@@ -91,6 +91,7 @@ export const Main: FC = () => {
 								key={story.id}
 								asLink
 								to={`${MAIN_PAGE_PATH}/${story.id}`}
+								extraFieldsToShow={[Fields.SCORE]}
 							/>
 						) : <span className='empty mt-20 bold color-dark-grey'>No stories found :(</span>
 					}

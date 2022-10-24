@@ -5,17 +5,17 @@ import {useLocation, useNavigate, useParams} from 'react-router-dom';
 import {isEmpty, isNull} from 'lodash';
 import {Button} from 'antd';
 import axios from 'axios';
+import './styles.scss';
 import {Story, Comment, ID, ChildComment} from '../../types';
 import {MINUTE} from '../../constants/time';
 import {ITEM} from '../../api/constants';
 import {MAIN_PAGE_PATH} from '../../routing/constants';
-import {StoryCard} from '../../components/StoryCard';
+import {StoryCard, Fields} from '../../components/StoryCard';
 
 export const SingleStory: FC = () => {
 
-	const {id} = useParams<string>();
-	const idStory = Number(id);
-
+	const {id: idStory} = useParams<string>();
+	const id = Number(idStory);
 
 	const [story, setStory] = useState<Story>();
 	const [comments, setComments] = useState<Comment[]>([]);
@@ -28,8 +28,10 @@ export const SingleStory: FC = () => {
 
 	let timer: NodeJS.Timeout | undefined;
 
+	const extraFieldsToShow = [Fields.URL, Fields.COMMENTS_COUNT];
+
 	useEffect(() => {
-		updateStoryAndCommentsEachMinute(idStory);
+		updateStoryAndCommentsEachMinute(id);
 		return () => clearTimeout(timer);
 	}, [location?.pathname]);
 
@@ -114,8 +116,7 @@ export const SingleStory: FC = () => {
 		<div className='single-story'>
 			<div className='content'>
 				<Button onClick={() => goBackToStories()} type='primary' className='mt-20 mb-10'>Go back to news</Button>
-				{story?.title}
-				<StoryCard isLoading={isStoryLoading} story={story} />
+				<StoryCard isLoading={isStoryLoading} story={story} extraFieldsToShow={extraFieldsToShow} />
 			</div>
 		</div>
 	);

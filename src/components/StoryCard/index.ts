@@ -1,3 +1,3 @@
 // @flow
 
-export {StoryCard} from './story-card';
+export {StoryCard, Fields} from './story-card';
