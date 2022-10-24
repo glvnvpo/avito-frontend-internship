@@ -1,3 +1,3 @@
 // @flow
 
-export {Spinner} from './spinner';
+export {Spinner, Sizes, Colors} from './spinner';

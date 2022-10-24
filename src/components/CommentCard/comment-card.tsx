@@ -5,6 +5,7 @@ import {Button, Comment} from 'antd';
 import {isEmpty} from 'lodash';
 import parse from 'html-react-parser';
 import './styles.scss';
+import {Colors, Sizes, Spinner} from '../Spinner';
 import {Comment as CommentType} from '../../types';
 import {getDateFromTimestamp} from '../../helpers/get-date-from-timestamp';
 
@@ -27,12 +28,21 @@ export const CommentCard: FC<Props> = ({comment, isParent=true, showAnswers, chi
 	};
 
 	const actions = [
-		(isParent && !isEmpty(kids) && showAnswers)
-			&& <Button onClick={() => showAnswers(comment)}>{getBtnText(showChildComment)}</Button>
+		(isParent && !isEmpty(kids) && showAnswers) &&
+		<Button onClick={() => showAnswers(comment)}>
+			{ isLoadingChildren ? <Spinner size={Sizes.SMALL} color={Colors.BLUE}/> : getBtnText(showChildComment) }
+		</Button>
 	];
 
 	return (
-		<Comment className='comment-card' author={by} content={parse(text)} datetime={getDateFromTimestamp(time)} actions={actions}>
+		<Comment
+			className='comment-card'
+			author={by}
+			content={parse(text)}
+			datetime={getDateFromTimestamp(time)}
+			actions={actions}
+			{...rest}
+		>
 			{children}
 		</Comment>
 	);
