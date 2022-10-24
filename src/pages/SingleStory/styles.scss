@@ -9,5 +9,18 @@
     width: 50em;
     padding-right: 10px;
     padding-left: 10px;
+
+    .story {
+      margin-bottom: 20px;
+    }
+
+    .comments {
+      margin-bottom: 50px;
+
+      .spinner {
+        display: flex;
+        justify-content: center;
+      }
+    }
   }
 }

@@ -11,6 +11,7 @@ import {MINUTE} from '../../constants/time';
 import {ITEM} from '../../api/constants';
 import {MAIN_PAGE_PATH} from '../../routing/constants';
 import {StoryCard, Fields} from '../../components/StoryCard';
+import {Spinner} from '../../components/Spinner';
 
 export const SingleStory: FC = () => {
 
@@ -117,6 +118,26 @@ export const SingleStory: FC = () => {
 			<div className='content'>
 				<Button onClick={() => goBackToStories()} type='primary' className='mt-20 mb-10'>Go back to news</Button>
 				<StoryCard isLoading={isStoryLoading} story={story} extraFieldsToShow={extraFieldsToShow} />
+
+				{
+					!isEmpty(story) &&
+					<Button onClick={(e) => updateStoryAndComments(id, e)} type='primary'>Update comments</Button>
+				}
+
+				<div className='comments mt-20 mb-20'>
+
+					{ (!isEmpty(story) && !isCommentsLoading) &&
+						(!isEmpty(comments) ? <span className='color-dark-grey bold'>Comments:</span>
+							: <span className='color-grey bold'>No comments found</span>)
+					}
+
+					{ (isCommentsLoading && !isStoryLoading) ? <Spinner className='mt-20' /> :
+						!isEmpty(comments) && comments.map((comment: Comment) =>
+							<div className='comment-wrapper mt-20' key={comment.id}>
+								{comment.text}
+							</div>
+						)}
+				</div>
 			</div>
 		</div>
 	);
