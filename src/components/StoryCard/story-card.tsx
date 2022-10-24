@@ -3,6 +3,7 @@
 import React, {FC, HTMLAttributes} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {Card} from 'antd';
+import {isEmpty} from 'lodash';
 import './styles.scss';
 import {Story} from '../../types';
 import {getDateFromTimestamp} from '../../helpers/get-date-from-timestamp';
@@ -15,7 +16,7 @@ export enum Fields {
 }
 
 type Props = {
-    story?: Story;
+    story: Story | undefined;
     isLoading?: boolean;
     asLink?: boolean;
     to?: string;
@@ -44,20 +45,28 @@ export const StoryCard: FC<Props & HTMLAttributes<any>> = ({story, isLoading=fal
 	};
 
 	return (
-		<Card title={title} className={`story color-grey3 ${asLink && 'link'}`}
-			  onClick={() => navigateTo(to)} {...rest}>
-			<span>
-				{ shouldShowExtraField(Fields.SCORE) && <>{score}&nbsp;point{(score && score>1) &&'s'}&nbsp;| </> }
-				<span className='user'>{by}</span>&nbsp;| {getDateFromTimestamp(time)}</span>
+		<Card className={`story color-grey3 ${asLink && 'link'}`}
+			  onClick={() => navigateTo(to)} {...rest} loading={isLoading}>
 
 			{
-				shouldShowExtraField(Fields.URL) &&
-				<span>{url ? <a href={url} target='_blank' rel='noreferrer'>Visit source</a> : 'No source link available'}</span>
-			}
+				!isEmpty(story) ? 
+					<>
+						<span className='title color-orange bold mb-10'>{title}</span>
+						<span>
+							{ shouldShowExtraField(Fields.SCORE) && <>{score}&nbsp;point{(score && score>1) &&'s'}&nbsp;| </> }
+							<span className='user bold'>{by}</span>&nbsp;| {getDateFromTimestamp(time)}</span>
 
-			{
-				shouldShowExtraField(Fields.COMMENTS_COUNT) &&
-				<span>Comments count: {descendants}</span>
+						{
+							shouldShowExtraField(Fields.URL) &&
+							<span>{url ? <a href={url} target='_blank' rel='noreferrer'>Visit source</a> : 'No source link available'}</span>
+						}
+
+						{
+							shouldShowExtraField(Fields.COMMENTS_COUNT) &&
+							<span>Comments count: {descendants}</span>
+						}
+					</>
+					: <span className='error bold'>Some troubles in loading story</span>
 			}
 		</Card>
 
