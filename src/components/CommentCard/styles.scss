@@ -2,5 +2,19 @@
 @import "../../style/variables.scss";
 
 .comment-card {
+  padding: 5px;
 
+  .ant-comment-content-author-name,
+  .ant-comment-content-author-time,
+  .ant-comment-content-detail{
+    font-size: 1rem;
+  }
+
+  .ant-comment-content-author-name {
+    font-weight: 600;
+  }
+
+  .ant-comment-content-detail {
+    color: $dark-grey;
+  }
 }

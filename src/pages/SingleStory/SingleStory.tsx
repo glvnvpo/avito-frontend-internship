@@ -110,6 +110,12 @@ export const SingleStory: FC = () => {
 		}
 	};
 
+	const showChildrenComments = (parentComment: Comment) => {
+		const {id, showChildComment} = parentComment;
+
+		console.log('showChildrenComments for', id);
+	};
+
 	const goBackToStories = () => {
 		navigate(MAIN_PAGE_PATH);
 	};
@@ -135,7 +141,9 @@ export const SingleStory: FC = () => {
 					{ (isCommentsLoading && !isStoryLoading) ? <Spinner className='mt-20' /> :
 						!isEmpty(comments) && comments.map((comment: Comment) =>
 							<div className='comment-wrapper mt-20' key={comment.id}>
-								<CommentCard comment={comment} />
+								<CommentCard
+									comment={comment}
+									showAnswers={showChildrenComments} />
 							</div>
 						)}
 				</div>
