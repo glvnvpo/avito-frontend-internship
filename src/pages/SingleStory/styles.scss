@@ -1,0 +1,13 @@
+@import '~antd/dist/antd.css';
+@import "../../style/variables.scss";
+
+.single-story {
+  display: flex;
+  justify-content: center;
+
+  .content {
+    width: 50em;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
