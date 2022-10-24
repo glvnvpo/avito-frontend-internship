@@ -4,14 +4,15 @@ import React, {FC, HTMLAttributes} from 'react';
 import {Spin} from 'antd';
 import './styles.scss';
 
-enum Sizes {
+export enum Sizes {
     LARGE= 'large',
     SMALL = 'small'
 }
 
-enum Colors {
+export enum Colors {
     ORANGE= 'orange',
-    GREY = 'grey'
+    GREY = 'grey',
+    BLUE = 'blue'
 }
 
 type Props = {
