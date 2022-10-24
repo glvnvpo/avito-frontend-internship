@@ -12,6 +12,7 @@ import {ITEM} from '../../api/constants';
 import {MAIN_PAGE_PATH} from '../../routing/constants';
 import {StoryCard, Fields} from '../../components/StoryCard';
 import {Spinner} from '../../components/Spinner';
+import {CommentCard} from '../../components/CommentCard';
 
 export const SingleStory: FC = () => {
 
@@ -134,7 +135,7 @@ export const SingleStory: FC = () => {
 					{ (isCommentsLoading && !isStoryLoading) ? <Spinner className='mt-20' /> :
 						!isEmpty(comments) && comments.map((comment: Comment) =>
 							<div className='comment-wrapper mt-20' key={comment.id}>
-								{comment.text}
+								<CommentCard comment={comment} />
 							</div>
 						)}
 				</div>

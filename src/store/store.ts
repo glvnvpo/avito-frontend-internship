@@ -1,3 +1,5 @@
+// @flow
+
 import {configureStore} from '@reduxjs/toolkit';
 import storiesReducer from './stories';
 
