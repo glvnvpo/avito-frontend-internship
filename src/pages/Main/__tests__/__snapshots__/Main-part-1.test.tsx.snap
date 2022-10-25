@@ -1,0 +1,326 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main Part 1 should render Main page with Spinner 1`] = `
+<Provider
+  store={
+    {
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      location={
+        {
+          "hash": "",
+          "key": "default",
+          "pathname": "/",
+          "search": "",
+          "state": null,
+        }
+      }
+      navigationType="POP"
+      navigator={
+        {
+          "action": "POP",
+          "createHref": [Function],
+          "go": [Function],
+          "listen": [Function],
+          "location": {
+            "hash": "",
+            "key": "default",
+            "pathname": "/",
+            "search": "",
+            "state": null,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Main>
+        <div
+          className="main"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header bg-white"
+            >
+              <span
+                className="title bold color-grey2"
+              >
+                Latest news
+              </span>
+              <Button
+                onClick={[Function]}
+                type="primary"
+              >
+                <ForwardRef
+                  disabled={false}
+                >
+                  <InternalWave
+                    disabled={false}
+                  >
+                    <button
+                      className="ant-btn ant-btn-primary"
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <LoadingIcon
+                        existIcon={false}
+                        loading={false}
+                        prefixCls="ant-btn"
+                      >
+                        <CSSMotion
+                          motionName="ant-btn-loading-icon-motion"
+                          onAppearActive={[Function]}
+                          onAppearStart={[Function]}
+                          onEnterActive={[Function]}
+                          onEnterStart={[Function]}
+                          onLeaveActive={[Function]}
+                          onLeaveStart={[Function]}
+                          removeOnLeave={true}
+                          visible={false}
+                        >
+                          <DomWrapper />
+                        </CSSMotion>
+                      </LoadingIcon>
+                      <span
+                        key=".0"
+                      >
+                        Update news
+                      </span>
+                    </button>
+                  </InternalWave>
+                </ForwardRef>
+              </Button>
+            </div>
+            <div
+              className="cards mt-10"
+            >
+              <Spinner
+                className="mt-20"
+              >
+                <div
+                  className="spinner orange"
+                >
+                  <Spin
+                    className="mt-20"
+                    size="large"
+                  >
+                    <Spin
+                      className="mt-20"
+                      size="large"
+                      spinPrefixCls="ant-spin"
+                    >
+                      <div
+                        aria-busy={true}
+                        aria-live="polite"
+                        className="ant-spin ant-spin-lg ant-spin-spinning mt-20"
+                      >
+                        <span
+                          className="ant-spin-dot ant-spin-dot-spin"
+                        >
+                          <i
+                            className="ant-spin-dot-item"
+                          />
+                          <i
+                            className="ant-spin-dot-item"
+                          />
+                          <i
+                            className="ant-spin-dot-item"
+                          />
+                          <i
+                            className="ant-spin-dot-item"
+                          />
+                        </span>
+                      </div>
+                    </Spin>
+                  </Spin>
+                </div>
+              </Spinner>
+            </div>
+          </div>
+        </div>
+      </Main>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;
+
+exports[`Main Part 1 should render Main page with StoryCard 1`] = `
+<Provider
+  store={
+    {
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      location={
+        {
+          "hash": "",
+          "key": "default",
+          "pathname": "/",
+          "search": "",
+          "state": null,
+        }
+      }
+      navigationType="POP"
+      navigator={
+        {
+          "action": "POP",
+          "createHref": [Function],
+          "go": [Function],
+          "listen": [Function],
+          "location": {
+            "hash": "",
+            "key": "default",
+            "pathname": "/",
+            "search": "",
+            "state": null,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Main>
+        <div
+          className="main"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header bg-white"
+            >
+              <span
+                className="title bold color-grey2"
+              >
+                Latest news
+              </span>
+              <Button
+                onClick={[Function]}
+                type="primary"
+              >
+                <ForwardRef
+                  disabled={false}
+                >
+                  <InternalWave
+                    disabled={false}
+                  >
+                    <button
+                      className="ant-btn ant-btn-primary"
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <LoadingIcon
+                        existIcon={false}
+                        loading={false}
+                        prefixCls="ant-btn"
+                      >
+                        <CSSMotion
+                          motionName="ant-btn-loading-icon-motion"
+                          onAppearActive={[Function]}
+                          onAppearStart={[Function]}
+                          onEnterActive={[Function]}
+                          onEnterStart={[Function]}
+                          onLeaveActive={[Function]}
+                          onLeaveStart={[Function]}
+                          removeOnLeave={true}
+                          visible={false}
+                        >
+                          <DomWrapper />
+                        </CSSMotion>
+                      </LoadingIcon>
+                      <span
+                        key=".0"
+                      >
+                        Update news
+                      </span>
+                    </button>
+                  </InternalWave>
+                </ForwardRef>
+              </Button>
+            </div>
+            <div
+              className="cards mt-10"
+            >
+              <StoryCard
+                asLink={true}
+                extraFieldsToShow={
+                  [
+                    "score",
+                  ]
+                }
+                key="20"
+                story={
+                  {
+                    "by": "coolUser",
+                    "descendants": 10,
+                    "id": 20,
+                    "score": 4,
+                    "time": 1666689031,
+                    "title": "someTitle",
+                    "url": "https://reactjs.org/",
+                  }
+                }
+                to="/hacker-news/20"
+              >
+                <ForwardRef
+                  className="story color-grey3 link"
+                  loading={false}
+                  onClick={[Function]}
+                >
+                  <div
+                    className="ant-card ant-card-bordered story color-grey3 link"
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="ant-card-body"
+                      style={{}}
+                    >
+                      <span
+                        className="title color-orange bold mb-10"
+                      >
+                        someTitle
+                      </span>
+                      <span>
+                        4
+                         point
+                        s
+                         | 
+                        <span
+                          className="user bold"
+                        >
+                          coolUser
+                        </span>
+                         | 
+                        25.10.2022
+                      </span>
+                    </div>
+                  </div>
+                </ForwardRef>
+              </StoryCard>
+            </div>
+          </div>
+        </div>
+      </Main>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;
