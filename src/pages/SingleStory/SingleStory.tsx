@@ -98,10 +98,18 @@ export const SingleStory: FC = () => {
 						if (!isEmpty(prevComments)) {
 							return loadedComments.map(comment => {
 								const existingComment = prevComments.find(el => el.id === comment.id);
-								return {
+								const showChildComment = existingComment ? existingComment.showChildComment : false;
+
+								const newComment = {
 									...comment,
-									showChildComment: existingComment ? existingComment.showChildComment : false
+									showChildComment: showChildComment
 								};
+
+								if (showChildComment) {
+									showChildrenComments(newComment, true);
+								}
+
+								return newComment;
 							});
 						}
 						else return loadedComments;
@@ -149,22 +157,21 @@ export const SingleStory: FC = () => {
 				const promises = kids.map(loadOneComment);
 				Promise.allSettled(promises)
 					.then(data => {
-						const loadedChildrenComments = data
+						data
 							.filter(({status}) => status === 'fulfilled')
 							// @ts-ignore
-							.map(({value}) => value);
-						loadedChildrenComments.forEach((el) => {
-							setChildrenComments(prevChildrenComments => (
-								{
-									...prevChildrenComments,
-									[el.id]: el
-								}
-							));
+							.forEach(({value}) => {
+								setChildrenComments(prevChildrenComments => (
+									{
+										...prevChildrenComments,
+										[value.id]: value
+									}
+								));
 
-							if (el.kids) {
-								resolve(loadChildrenComments(el));
-							} else resolve();
-						});
+								if (value.kids) {
+									resolve(loadChildrenComments(value));
+								} else resolve();
+							});
 					});
 			}
 		});
@@ -186,10 +193,18 @@ export const SingleStory: FC = () => {
 		</>;
 	};
 
-	const showChildrenComments = (parentComment: Comment) => {
+	const showChildrenComments = (parentComment: Comment, stayOpenChildrenComments: boolean = false) => {
+
 		const {id, showChildComment} = parentComment;
 
-		if (showChildComment) {
+		if (stayOpenChildrenComments && showChildComment) {
+			changeParentCommentLoadingChildren(id);
+			loadChildrenComments(parentComment)
+				.finally(() => {
+					changeParentCommentLoadingChildren(id);
+				});
+		}
+		else if (showChildComment) {
 			changeVisibilityOfChildComment(id);
 		}
 		else {
