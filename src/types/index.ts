@@ -29,6 +29,7 @@ export type Comment = {
     by: string;
     text: string;
     time: number | string;
+    deleted?: boolean;
     kids?: Array<number | string>;
     children?: Array<ChildComment>;
     showChildComment?: boolean;
