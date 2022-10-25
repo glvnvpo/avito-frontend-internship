@@ -16,14 +16,6 @@ export type Story = {
     descendants?: number | string;
 }
 
-export type ChildComment = {
-    id: number | string;
-    by: string;
-    text: string;
-    time: number | string;
-    kids?: Array<number | string>;
-}
-
 export type Comment = {
     id: number | string;
     by: string;
@@ -31,7 +23,7 @@ export type Comment = {
     time: number | string;
     deleted?: boolean;
     kids?: Array<number | string>;
-    children?: Array<ChildComment>;
+    children?: Array<Comment>;
     showChildComment?: boolean;
     isLoadingChildren?: boolean;
 }
