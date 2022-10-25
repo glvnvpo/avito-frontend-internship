@@ -189,7 +189,7 @@ export const SingleStory: FC = () => {
 	const showChildrenComments = (parentComment: Comment) => {
 		const {id, showChildComment} = parentComment;
 
-		if (showChildComment || childrenComments[id]) {
+		if (showChildComment) {
 			changeVisibilityOfChildComment(id);
 		}
 		else {
