@@ -11,7 +11,7 @@ import {Story} from '../../../types';
 import {NEW_STORIES as mockNEW_STORIES} from '../../../api/constants';
 import {setStories} from '../../../store/stories';
 
-// Тесты для страницы Main разделены на несколько файлов т.к. waitForComponentToPaint()
+// Тесты для страницы Main разделены на несколько файлов т.к. act()
 // падает с ошибкой при вызове ее несколько раз в одном файле
 
 let mockLoadNewStories = Promise.resolve({data: [10]});
