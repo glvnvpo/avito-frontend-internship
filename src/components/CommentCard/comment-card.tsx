@@ -18,7 +18,7 @@ type Props = {
 
 export const CommentCard: FC<Props> = ({comment, isParent=true, showAnswers, children, ...rest}) => {
 
-	let {by, time, kids, deleted, dead, isLoadingChildren, showChildComment} = comment || {};
+	let {by, time, kids, deleted, dead, isLoadingChildren, showChildComment} = comment;
 
 	const getBtnText = (isOpen: boolean | undefined):string => {
 		if (isOpen) {
@@ -44,9 +44,7 @@ export const CommentCard: FC<Props> = ({comment, isParent=true, showAnswers, chi
 			return 'Comment not available';
 		}
 
-		if (text) {
-			return parse(text);
-		}
+		return parse(text);
 	};
 
 	return (
