@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StoryCard should render correct story card 1`] = `
+<BrowserRouter>
+  <Router
+    location={
+      {
+        "hash": "",
+        "key": "default",
+        "pathname": "/",
+        "search": "",
+        "state": null,
+      }
+    }
+    navigationType="POP"
+    navigator={
+      {
+        "action": "POP",
+        "createHref": [Function],
+        "go": [Function],
+        "listen": [Function],
+        "location": {
+          "hash": "",
+          "key": "default",
+          "pathname": "/",
+          "search": "",
+          "state": null,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <StoryCard
+      story={
+        {
+          "by": "coolUser",
+          "descendants": 10,
+          "id": 11,
+          "score": 3,
+          "time": 1666689031,
+          "title": "someTitle",
+          "url": "https://reactjs.org/",
+        }
+      }
+    >
+      <ForwardRef
+        className="story color-grey3 false"
+        loading={false}
+        onClick={[Function]}
+      >
+        <div
+          className="ant-card ant-card-bordered story color-grey3 false"
+          onClick={[Function]}
+        >
+          <div
+            className="ant-card-body"
+            style={{}}
+          >
+            <span
+              className="title color-orange bold mb-10"
+            >
+              someTitle
+            </span>
+            <span>
+              3
+               point
+              s
+               | 
+              <span
+                className="user bold"
+              >
+                coolUser
+              </span>
+               | 
+              25.10.2022
+            </span>
+            <span
+              className="url"
+            >
+              <a
+                href="https://reactjs.org/"
+                rel="noreferrer"
+                target="_blank"
+              >
+                Visit source
+              </a>
+            </span>
+            <span
+              className="comments-count"
+            >
+              Comments count: 
+              10
+            </span>
+          </div>
+        </div>
+      </ForwardRef>
+    </StoryCard>
+  </Router>
+</BrowserRouter>
+`;
