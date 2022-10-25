@@ -6,7 +6,7 @@ import {isEmpty, isNull} from 'lodash';
 import {Button} from 'antd';
 import axios from 'axios';
 import './styles.scss';
-import {Story, Comment, ID, ChildComment} from '../../types';
+import {Story, Comment, ID} from '../../types';
 import {MINUTE} from '../../constants/time';
 import {ITEM} from '../../api/constants';
 import {MAIN_PAGE_PATH} from '../../routing/constants';
@@ -14,14 +14,19 @@ import {StoryCard, Fields} from '../../components/StoryCard';
 import {Spinner} from '../../components/Spinner';
 import {CommentCard} from '../../components/CommentCard';
 
+type childrenCommentsToSave = {
+	[key: ID]: Comment
+}
+
 export const SingleStory: FC = () => {
+
 
 	const {id: idStory} = useParams<string>();
 	const id = Number(idStory);
 
 	const [story, setStory] = useState<Story>();
 	const [comments, setComments] = useState<Comment[]>([]);
-	const [childrenComments, setChildrenComments] = useState({});
+	const [childrenComments, setChildrenComments] = useState<childrenCommentsToSave>({});
 	const [isStoryLoading, setStoryLoading] = useState<boolean>(true);
 	const [isCommentsLoading, setCommentsLoading] = useState<boolean>(true);
 
@@ -70,9 +75,9 @@ export const SingleStory: FC = () => {
 		});
 	};
 
-	const loadOneComment = (id: ID): Promise<Comment | ChildComment> => {
+	const loadOneComment = (id: ID): Promise<Comment> => {
 		return new Promise((resolve, reject) => {
-			axios<Comment | ChildComment>(ITEM(id))
+			axios<Comment>(ITEM(id))
 				.then(({data}) => !isNull(data) ? resolve(data) : reject('No data'))
 				.catch(err => reject(err));
 		});
@@ -110,10 +115,91 @@ export const SingleStory: FC = () => {
 		}
 	};
 
+	const changeVisibilityOfChildComment = (parentId: ID) => {
+		setComments(prevComments => {
+			const parentComment = prevComments.find(({id}) => parentId === id);
+			const newVisibility = !parentComment?.showChildComment;
+			return prevComments.map(
+				comment => (comment.id === parentId && parentComment) ?
+					{...parentComment, showChildComment: newVisibility}
+					: comment
+			);
+		});
+	};
+
+	const changeParentCommentLoadingChildren = (parentId: ID) => {
+		setComments(prevComments => {
+			const parentComment = prevComments.find(({id}) => parentId === id);
+			return prevComments.map(
+				comment => ( comment.id === parentId && parentComment) ?
+					{
+						...parentComment,
+						isLoadingChildren: !parentComment.isLoadingChildren
+					}
+					: comment
+			);
+		});
+	};
+
+	const loadChildrenComments = (parentComment: Comment) => {
+		const {kids} = parentComment;
+
+		return new Promise<void>(resolve => {
+			if (kids) {
+				const promises = kids.map(loadOneComment);
+				Promise.allSettled(promises)
+					.then(data => {
+						const loadedChildrenComments = data
+							.filter(({status}) => status === 'fulfilled')
+							// @ts-ignore
+							.map(({value}) => value);
+						loadedChildrenComments.forEach((el) => {
+							setChildrenComments(prevChildrenComments => (
+								{
+									...prevChildrenComments,
+									[el.id]: el
+								}
+							));
+
+							if (el.kids) {
+								resolve(loadChildrenComments(el));
+							} else resolve();
+						});
+					});
+			}
+		});
+	};
+
+	const renderChildComment = (comment: Comment) =>
+ 		<CommentCard
+			key={comment.id}
+			comment={comment}
+			isParent={false}>
+			{comment.kids && renderChildrenComments(comment.kids)}
+		</CommentCard>;
+
+	const renderChildrenComments = (kids: Array<ID>) => {
+		return <>
+			{kids && kids.map(kid => {
+				return childrenComments[kid] && renderChildComment(childrenComments[kid]);
+			})}
+		</>;
+	};
+
 	const showChildrenComments = (parentComment: Comment) => {
 		const {id, showChildComment} = parentComment;
 
-		console.log('showChildrenComments for', id);
+		if (showChildComment || childrenComments[id]) {
+			changeVisibilityOfChildComment(id);
+		}
+		else {
+			changeParentCommentLoadingChildren(id);
+			loadChildrenComments(parentComment)
+				.finally(() => {
+					changeParentCommentLoadingChildren(id);
+					changeVisibilityOfChildComment(id);
+				});
+		}
 	};
 
 	const goBackToStories = () => {
@@ -140,10 +226,12 @@ export const SingleStory: FC = () => {
 
 					{ (isCommentsLoading && !isStoryLoading) ? <Spinner className='mt-20' /> :
 						!isEmpty(comments) && comments.map((comment: Comment) =>
-							<div className='comment-wrapper mt-20' key={comment.id}>
+							<div className='comment-wrapper' key={comment.id}>
 								<CommentCard
 									comment={comment}
-									showAnswers={showChildrenComments} />
+									showAnswers={showChildrenComments}>
+									{ (comment.kids && comment.showChildComment) && renderChildrenComments(comment.kids) }
+								</CommentCard>
 							</div>
 						)}
 				</div>

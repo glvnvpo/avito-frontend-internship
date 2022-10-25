@@ -38,7 +38,7 @@ export const CommentCard: FC<Props> = ({comment, isParent=true, showAnswers, chi
 		<Comment
 			className='comment-card'
 			author={by}
-			content={parse(text)}
+			content={text && parse(text)}
 			datetime={getDateFromTimestamp(time)}
 			actions={actions}
 			{...rest}
