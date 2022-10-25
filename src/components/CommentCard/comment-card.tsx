@@ -18,7 +18,7 @@ type Props = {
 
 export const CommentCard: FC<Props> = ({comment, isParent=true, showAnswers, children, ...rest}) => {
 
-	let {by, time, text, kids, isLoadingChildren, showChildComment} = comment || {};
+	let {by, time, kids, deleted, isLoadingChildren, showChildComment} = comment || {};
 
 	const getBtnText = (isOpen: boolean | undefined):string => {
 		if (isOpen) {
@@ -27,18 +27,29 @@ export const CommentCard: FC<Props> = ({comment, isParent=true, showAnswers, chi
 		else return 'Show answers';
 	};
 
-	const actions = [
-		(isParent && !isEmpty(kids) && showAnswers) &&
+	const actions = (isParent && !isEmpty(kids) && showAnswers) ? [
 		<Button onClick={() => showAnswers(comment)}>
 			{ isLoadingChildren ? <Spinner size={Sizes.SMALL} color={Colors.BLUE}/> : getBtnText(showChildComment) }
 		</Button>
-	];
+	] : undefined;
+	
+	const getContent = (comment: CommentType) => {
+		const {text, deleted} = comment;
+
+		if (deleted) {
+			return 'This comment was deleted';
+		}
+
+		if (text) {
+			return parse(text);
+		}
+	};
 
 	return (
 		<Comment
-			className='comment-card'
+			className={`comment-card ${deleted && 'deleted'}`}
 			author={by}
-			content={text && parse(text)}
+			content={getContent(comment)}
 			datetime={getDateFromTimestamp(time)}
 			actions={actions}
 			{...rest}
