@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentCard should render correct comment tree (opened) 1`] = `
+<CommentCard
+  comment={
+    {
+      "by": "coolUser",
+      "id": 123,
+      "kids": [
+        124,
+      ],
+      "showChildComment": true,
+      "text": "someText",
+      "time": 1666689031,
+    }
+  }
+  showAnswers={[MockFunction]}
+>
+  <Comment
+    actions={
+      [
+        <Button
+          onClick={[Function]}
+        >
+          Hide answers
+        </Button>,
+      ]
+    }
+    author="coolUser"
+    className="comment-card undefined undefined"
+    content="someText"
+    datetime="25.10.2022"
+  >
+    <div
+      className="ant-comment comment-card undefined undefined"
+    >
+      <div
+        className="ant-comment-inner"
+      >
+        <div
+          className="ant-comment-content"
+        >
+          <div
+            className="ant-comment-content-author"
+          >
+            <span
+              className="ant-comment-content-author-name"
+            >
+              coolUser
+            </span>
+            <span
+              className="ant-comment-content-author-time"
+            >
+              25.10.2022
+            </span>
+          </div>
+          <div
+            className="ant-comment-content-detail"
+          >
+            someText
+          </div>
+          <ul
+            className="ant-comment-actions"
+          >
+            <li
+              key="action-0"
+            >
+              <Button
+                onClick={[Function]}
+              >
+                <ForwardRef
+                  disabled={false}
+                >
+                  <InternalWave
+                    disabled={false}
+                  >
+                    <button
+                      className="ant-btn ant-btn-default"
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <LoadingIcon
+                        existIcon={false}
+                        loading={false}
+                        prefixCls="ant-btn"
+                      >
+                        <CSSMotion
+                          motionName="ant-btn-loading-icon-motion"
+                          onAppearActive={[Function]}
+                          onAppearStart={[Function]}
+                          onEnterActive={[Function]}
+                          onEnterStart={[Function]}
+                          onLeaveActive={[Function]}
+                          onLeaveStart={[Function]}
+                          removeOnLeave={true}
+                          visible={false}
+                        >
+                          <DomWrapper />
+                        </CSSMotion>
+                      </LoadingIcon>
+                      <span
+                        key=".0"
+                      >
+                        Hide answers
+                      </span>
+                    </button>
+                  </InternalWave>
+                </ForwardRef>
+              </Button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        className="ant-comment-nested"
+      >
+        <CommentCard
+          comment={
+            {
+              "by": "coolUser124",
+              "id": 124,
+              "parent": 123,
+              "text": "someText124",
+              "time": 1666689031,
+            }
+          }
+          isParent={false}
+        >
+          <Comment
+            author="coolUser124"
+            className="comment-card undefined undefined"
+            content="someText124"
+            datetime="25.10.2022"
+          >
+            <div
+              className="ant-comment comment-card undefined undefined"
+            >
+              <div
+                className="ant-comment-inner"
+              >
+                <div
+                  className="ant-comment-content"
+                >
+                  <div
+                    className="ant-comment-content-author"
+                  >
+                    <span
+                      className="ant-comment-content-author-name"
+                    >
+                      coolUser124
+                    </span>
+                    <span
+                      className="ant-comment-content-author-time"
+                    >
+                      25.10.2022
+                    </span>
+                  </div>
+                  <div
+                    className="ant-comment-content-detail"
+                  >
+                    someText124
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Comment>
+        </CommentCard>
+      </div>
+    </div>
+  </Comment>
+</CommentCard>
+`;
