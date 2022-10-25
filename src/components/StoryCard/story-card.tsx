@@ -58,12 +58,12 @@ export const StoryCard: FC<Props & HTMLAttributes<any>> = ({story, isLoading=fal
 
 						{
 							shouldShowExtraField(Fields.URL) &&
-							<span>{url ? <a href={url} target='_blank' rel='noreferrer'>Visit source</a> : 'No source link available'}</span>
+							<span className='url'>{url ? <a href={url} target='_blank' rel='noreferrer'>Visit source</a> : 'No source link available'}</span>
 						}
 
 						{
 							shouldShowExtraField(Fields.COMMENTS_COUNT) &&
-							<span>Comments count: {descendants}</span>
+							<span className='comments-count'>Comments count: {descendants}</span>
 						}
 					</>
 					: <span className='error bold'>Some troubles in loading story</span>
