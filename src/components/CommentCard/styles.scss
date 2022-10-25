@@ -4,7 +4,7 @@
 .comment-card {
   padding: 5px;
 
-  &.deleted {
+  &.deleted, &.dead {
 
     .ant-comment-content-detail {
       color: $grey;

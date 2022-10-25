@@ -18,7 +18,7 @@ type Props = {
 
 export const CommentCard: FC<Props> = ({comment, isParent=true, showAnswers, children, ...rest}) => {
 
-	let {by, time, kids, deleted, isLoadingChildren, showChildComment} = comment || {};
+	let {by, time, kids, deleted, dead, isLoadingChildren, showChildComment} = comment || {};
 
 	const getBtnText = (isOpen: boolean | undefined):string => {
 		if (isOpen) {
@@ -34,10 +34,14 @@ export const CommentCard: FC<Props> = ({comment, isParent=true, showAnswers, chi
 	] : undefined;
 	
 	const getContent = (comment: CommentType) => {
-		const {text, deleted} = comment;
+		const {text, deleted, dead} = comment;
 
 		if (deleted) {
 			return 'This comment was deleted';
+		}
+
+		if (dead) {
+			return 'Comment not available';
 		}
 
 		if (text) {
@@ -47,7 +51,7 @@ export const CommentCard: FC<Props> = ({comment, isParent=true, showAnswers, chi
 
 	return (
 		<Comment
-			className={`comment-card ${deleted && 'deleted'}`}
+			className={`comment-card ${deleted && 'deleted'} ${dead && 'dead'}`}
 			author={by}
 			content={getContent(comment)}
 			datetime={getDateFromTimestamp(time)}
