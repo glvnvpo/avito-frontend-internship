@@ -8,7 +8,7 @@ import {createStore} from '@reduxjs/toolkit';
 import {Main} from '../Main';
 import {NEW_STORIES as mockNEW_STORIES} from '../../../api/constants';
 
-// Тесты для страницы Main разделены на несколько файлов т.к. waitForComponentToPaint()
+// Тесты для страницы Main разделены на несколько файлов т.к. act()
 // падает с ошибкой при вызове ее несколько раз в одном файле
 
 jest.mock('axios', () => ({
