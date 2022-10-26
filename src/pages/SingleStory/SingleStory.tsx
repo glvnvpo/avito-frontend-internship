@@ -224,7 +224,7 @@ export const SingleStory: FC = () => {
 	return (
 		<div className='single-story'>
 			<div className='content'>
-				<Button onClick={() => goBackToStories()} type='primary' className='mt-20 mb-10'>Go back to news</Button>
+				<Button onClick={() => goBackToStories()} type='primary' className='go-back mt-20 mb-10'>Go back to news</Button>
 				<StoryCard isLoading={isStoryLoading} story={story} extraFieldsToShow={extraFieldsToShow} />
 
 				{

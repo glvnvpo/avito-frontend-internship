@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SingleStory should render Single story when loading 1`] = `
+<BrowserRouter>
+  <Router
+    location={
+      {
+        "hash": "",
+        "key": "default",
+        "pathname": "/",
+        "search": "",
+        "state": null,
+      }
+    }
+    navigationType="POP"
+    navigator={
+      {
+        "action": "POP",
+        "createHref": [Function],
+        "go": [Function],
+        "listen": [Function],
+        "location": {
+          "hash": "",
+          "key": "default",
+          "pathname": "/",
+          "search": "",
+          "state": null,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <SingleStory>
+      <div
+        className="single-story"
+      >
+        <div
+          className="content"
+        >
+          <Button
+            className="go-back mt-20 mb-10"
+            onClick={[Function]}
+            type="primary"
+          >
+            <ForwardRef
+              disabled={false}
+            >
+              <InternalWave
+                disabled={false}
+              >
+                <button
+                  className="ant-btn ant-btn-primary go-back mt-20 mb-10"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <LoadingIcon
+                    existIcon={false}
+                    loading={false}
+                    prefixCls="ant-btn"
+                  >
+                    <CSSMotion
+                      motionName="ant-btn-loading-icon-motion"
+                      onAppearActive={[Function]}
+                      onAppearStart={[Function]}
+                      onEnterActive={[Function]}
+                      onEnterStart={[Function]}
+                      onLeaveActive={[Function]}
+                      onLeaveStart={[Function]}
+                      removeOnLeave={true}
+                      visible={false}
+                    >
+                      <DomWrapper />
+                    </CSSMotion>
+                  </LoadingIcon>
+                  <span
+                    key=".0"
+                  >
+                    Go back to news
+                  </span>
+                </button>
+              </InternalWave>
+            </ForwardRef>
+          </Button>
+          <StoryCard
+            extraFieldsToShow={
+              [
+                "url",
+                "comments-count",
+              ]
+            }
+            isLoading={true}
+          >
+            <ForwardRef
+              className="story color-grey3 false"
+              loading={true}
+              onClick={[Function]}
+            >
+              <div
+                className="ant-card ant-card-loading ant-card-bordered story color-grey3 false"
+                onClick={[Function]}
+              >
+                <div
+                  className="ant-card-body"
+                  style={{}}
+                >
+                  <Skeleton
+                    active={true}
+                    loading={true}
+                    paragraph={
+                      {
+                        "rows": 4,
+                      }
+                    }
+                    title={false}
+                  >
+                    <div
+                      className="ant-skeleton ant-skeleton-active"
+                    >
+                      <div
+                        className="ant-skeleton-content"
+                      >
+                        <Paragraph
+                          prefixCls="ant-skeleton-paragraph"
+                          rows={4}
+                          width="61%"
+                        >
+                          <ul
+                            className="ant-skeleton-paragraph"
+                          >
+                            <li
+                              key="0"
+                              style={
+                                {
+                                  "width": undefined,
+                                }
+                              }
+                            />
+                            <li
+                              key="1"
+                              style={
+                                {
+                                  "width": undefined,
+                                }
+                              }
+                            />
+                            <li
+                              key="2"
+                              style={
+                                {
+                                  "width": undefined,
+                                }
+                              }
+                            />
+                            <li
+                              key="3"
+                              style={
+                                {
+                                  "width": "61%",
+                                }
+                              }
+                            />
+                          </ul>
+                        </Paragraph>
+                      </div>
+                    </div>
+                  </Skeleton>
+                </div>
+              </div>
+            </ForwardRef>
+          </StoryCard>
+          <div
+            className="comments mt-20 mb-20"
+          />
+        </div>
+      </div>
+    </SingleStory>
+  </Router>
+</BrowserRouter>
+`;
