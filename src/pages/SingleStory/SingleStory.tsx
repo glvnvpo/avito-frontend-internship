@@ -3,7 +3,7 @@
 import React, {FC, MouseEvent, useEffect, useState} from 'react';
 import {useLocation, useNavigate, useParams} from 'react-router-dom';
 import {isEmpty, isNull} from 'lodash';
-import {Button} from 'antd';
+import {Button, BackTop} from 'antd';
 import axios from 'axios';
 import './styles.scss';
 import {Story, Comment, ID} from '../../types';
@@ -224,6 +224,7 @@ export const SingleStory: FC = () => {
 	return (
 		<div className='single-story'>
 			<div className='content'>
+				<BackTop><div className='back-top color-orange bg-white'>Up</div></BackTop>
 				<Button onClick={() => goBackToStories()} type='primary' className='go-back mt-20 mb-10'>Go back to news</Button>
 				<StoryCard isLoading={isStoryLoading} story={story} extraFieldsToShow={extraFieldsToShow} />
 

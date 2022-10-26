@@ -10,6 +10,27 @@
     padding-right: 10px;
     padding-left: 10px;
 
+    .ant-back-top {
+      bottom: 20px;
+
+      .back-top {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $orange;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+
+        &:hover {
+          color: $white;
+          background: $orange;
+          //transition: all 0.2s ease;
+        }
+      }
+    }
+
     .story {
       margin-bottom: 20px;
     }
