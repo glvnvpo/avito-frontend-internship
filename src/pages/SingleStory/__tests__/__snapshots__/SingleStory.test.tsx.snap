@@ -38,6 +38,25 @@ exports[`SingleStory should render Single story when loading 1`] = `
         <div
           className="content"
         >
+          <Memo(BackTop)>
+            <div
+              className="ant-back-top"
+              onClick={[Function]}
+            >
+              <BackTopContent
+                prefixCls="ant-back-top"
+                rootPrefixCls="ant"
+                visible={false}
+              >
+                <CSSMotion
+                  motionName="ant-fade"
+                  visible={false}
+                >
+                  <DomWrapper />
+                </CSSMotion>
+              </BackTopContent>
+            </div>
+          </Memo(BackTop)>
           <Button
             className="go-back mt-20 mb-10"
             onClick={[Function]}
