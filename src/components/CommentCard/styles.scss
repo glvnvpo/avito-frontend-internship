@@ -23,6 +23,10 @@
 
   .ant-comment-content-detail {
     color: $dark-grey;
+
+    a {
+      word-break: break-all;
+    }
   }
 
   .ant-btn {
